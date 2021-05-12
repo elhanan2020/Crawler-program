@@ -33,7 +33,7 @@ public class ServletCrawler extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/html");
-        String Url = request.getParameter("url");
+        String Url = request.getParameter("url").trim();
         if(checkValidUrl(Url)) {
             int deap = Integer.parseInt(this.getServletContext().getInitParameter("MaxDepth"));
             ServletContext context = getServletContext();
@@ -62,6 +62,8 @@ public class ServletCrawler extends HttpServlet {
            URL url = new URL(Url);
            HttpURLConnection connect = (HttpURLConnection) url.openConnection();
            connect.setRequestMethod("HEAD");
+           if(!connect.getContentType().contains("html"))
+               return false;
        }
        catch (Exception e){
          return false;

@@ -13,16 +13,11 @@
         <element id="directory" name="classes">
           <element id="module-output" name="ex_03_ElhananBuff" />
         </element>
-        <element id="directory" name="lib">
-          <element id="library" level="project" name="org.jsoup:jsoup:1.13.1" />
-          <element id="library" level="project" name="javax.servlet:javax.servlet-api:4.0.1" />
-        </element>
       </element>
       <element id="directory" name="META-INF">
         <element id="file-copy" path="$PROJECT_DIR$/target/ex_03_ElhananBuff-1.0-SNAPSHOT/META-INF/MANIFEST.MF" />
       </element>
       <element id="javaee-facet-resources" facet="ex_03_ElhananBuff/web/Web" />
-      <element id="javaee-facet-resources" facet="ex_03_ElhananBuff/web/Web2" />
     </root>
   </artifact>
 </component>
