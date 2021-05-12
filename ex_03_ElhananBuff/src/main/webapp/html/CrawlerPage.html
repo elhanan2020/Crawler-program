@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Crowler</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+</head>
+<body>
+    <div class ="container-fluid ">
+        <div class = "row justify-content-center" >
+            <h1>Welcome to the crawler  programming page</h1>
+            </div>
+            <div class = "row justify-content-center" >
+                    <div class = "col-sm-8">
+                        <form onsubmit = "return validatorForm ()" name="myForm" action="/ServletCrawler" method="POST">
+                            <input class="form-control form-control-lg ,alert alert-secondary" name="url" type="text" placeholder="enter your url you want to check" aria-label=".form-control-lg example" required>
+                            <button type="submit" class="btn btn-secondary"> Search</button>
+                            <p class = "alert alert-danger" id = "errorMessage1" style="display:none" > </p>
+
+                        </form>
+                    </div>
+            </div>
+    </div>
+    <script>
+        function validatorForm(){
+            document.getElementById("errorMessage1").style.display="none" ;
+
+            let url = document.myForm.url.value.trim();
+
+            if (url == null || url === ""){
+                document.getElementById("errorMessage1").style.display="block" ;
+                document.getElementById("errorMessage1").innerHTML = "enter  a nonempty url please";
+                return false;
+            }
+
+        }
+    </script>
+</body>
+
+
+</html>

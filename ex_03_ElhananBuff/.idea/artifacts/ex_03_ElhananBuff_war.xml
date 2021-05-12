@@ -1,0 +1,24 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="ex_03_ElhananBuff:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <module>ex_03_ElhananBuff</module>
+        <packaging>war</packaging>
+      </options>
+    </properties>
+    <root id="archive" name="ex_03_ElhananBuff-1.0-SNAPSHOT.war">
+      <element id="artifact" artifact-name="ex_03_ElhananBuff:war exploded" />
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="lib">
+          <element id="library" level="project" name="org.jsoup:jsoup:1.13.1" />
+          <element id="library" level="project" name="javax.servlet:javax.servlet-api:4.0.1" />
+        </element>
+        <element id="directory" name="classes">
+          <element id="module-output" name="ex_03_ElhananBuff" />
+        </element>
+      </element>
+      <element id="javaee-facet-resources" facet="ex_03_ElhananBuff/web/Web2" />
+    </root>
+  </artifact>
+</component>
