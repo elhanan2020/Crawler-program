@@ -28,9 +28,6 @@ public class MyContextListener implements ServletContextListener{
 
         ServletContext context = servletContextEvent.getServletContext();
 
-        /*String driver = ctx.getInitParameter("DBDRIVER-GLOBAL");
-        String url = ctx.getInitParameter("DBURL-GLOBAL");*/
-
         //create database connection from init parameters and store it in context
         DataBase dbManager = new DataBase();
         context.setAttribute("DataBase", dbManager);

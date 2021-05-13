@@ -17,12 +17,6 @@ public class ServletCrawler extends HttpServlet {
 
     @Override   public void init(ServletConfig config) throws ServletException {
         super.init(config);
-
-        /*ServletContext context = getServletContext();*/
-
-       /* context.setAttribute("DataBase", new DataBase());*/
-
-        /*context.setAttribute("Counter", new int[]{0});*/
     }
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -35,21 +29,8 @@ public class ServletCrawler extends HttpServlet {
         response.setContentType("text/html");
         String Url = request.getParameter("url").trim();
         if(checkValidUrl(Url)) {
-            int deap = Integer.parseInt(this.getServletContext().getInitParameter("MaxDepth"));
-            ServletContext context = getServletContext();
-            DataBase db = (DataBase) context.getAttribute("DataBase");
+            request.getRequestDispatcher("CreateThread").include(request, response);
 
-            HttpSession session = request.getSession();
-            int[] id = (int[]) context.getAttribute("Counter");
-            synchronized (this) {
-                session.setAttribute("id", id[0]);
-                db.setNewThread(Integer.toString(id[0]), new CheckUrl(Url));
-            }
-            CrawlerWeb myCraw = new CrawlerWeb(Integer.toString(id[0]), Url, deap, db);
-
-            myCraw.start();
-            id[0]++;
-            request.getRequestDispatcher("html/CrawlingIsRun.html").include(request, response);
         }
         else
             response.sendRedirect("badUrl.html");
